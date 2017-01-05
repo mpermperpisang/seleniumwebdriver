@@ -19,11 +19,10 @@ public class TestCms {
 	private static Connection conn;
 
 	public static void main(String[] args) throws SQLException, ClassNotFoundException {
-		// TODO Auto-generated method stub		
-		// Create a new instance of the Firefox driver
+		// Create a new instance of the Chrome driver
 		WebDriver driver = new ChromeDriver();
 		
-        //Launch the Online Store Website
+        //Launch the website
 		driver.get("https://www.travelagent.co.id/");        
 
         WebElement username = driver.findElement(By.id("user_s"));
@@ -42,19 +41,16 @@ public class TestCms {
 		try {
 			Thread.sleep(5);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
  
-        // Print a Log In message to the screen
         String host = "jdbc:mysql://localhost:3306/seminarp_cms_seminar_penelitian";
         String uName = "root";
         String uPass = "";
 
         Class.forName("com.mysql.jdbc.Driver"); 
         Connection conn = DriverManager.getConnection(host, uName, uPass);
-        System.out.println("Connection Established Successfull and the DATABASE NAME IS:"
-                + conn.getMetaData().getDatabaseProductName());
+        System.out.println("Connection Established Successfull and the DATABASE NAME IS:"+ conn.getMetaData().getDatabaseProductName());
 		java.sql.Statement stmt = conn.createStatement();
         ResultSet rs;
 
